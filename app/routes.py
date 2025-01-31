@@ -450,8 +450,8 @@ def approve_user(user_id):
 @main.route("/verification/reject/<int:user_id>", methods=["POST"])
 @login_required
 @role_required("admin")
-def reject_user(user_id):
-    response, status_code = reject_verification(user_id)
+def reject_user(userID):
+    response, status_code = reject_verification(userID)
     flash(
         response.get("message", response.get("error")),
         "success" if status_code == 200 else "danger",
