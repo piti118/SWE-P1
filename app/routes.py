@@ -454,6 +454,6 @@ def reject_user(user_id):
     response, status_code = reject_verification(user_id)
     flash(
         response.get("message", response.get("error")),
-        "success" if status_code == 200 else "danger",
+        "success" if status_code        == 200 else "danger",
     )
     return redirect(url_for("main.verification"))
