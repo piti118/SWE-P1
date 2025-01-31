@@ -2,8 +2,9 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-COPY requirements.txt requirements.txt
-RUN pip install --no-cache-dir --requirement requirements.txt || true
+COPY pyproject.toml pyproject.toml
+COPY poetry.lock poetry.lock
+RUN poetry install --no-dev
 
 COPY . .
 
