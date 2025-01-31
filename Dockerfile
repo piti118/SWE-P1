@@ -7,8 +7,7 @@ WORKDIR /app
 COPY pyproject.toml pyproject.toml
 COPY poetry.lock poetry.lock
 
-RUN curl -sSL https://install.python-poetry.org | python3 -
-RUN export PATH="/root/.local/bin:$PATH"
+RUN pip install --no-cache-dir poetry
 RUN poetry install --no-dev
 
 COPY . .
